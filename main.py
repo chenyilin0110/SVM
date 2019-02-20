@@ -18,6 +18,7 @@ outputLayer = sys.argv[3]
 testing = sys.argv[4]
 iteration = sys.argv[5]
 number = sys.argv[6]
+c = sys.argv[7]
 
 # load dataset
 if finder == "multi":
@@ -54,7 +55,7 @@ resultNormalize = preprocess.normalize(noStringTemp_X)
 # noStringTemp_X = noStringTemp_X.astype(float)
 
 # build svm
-svm = svm.SVC()
+svm = svm.SVC(C=float(c))
 
 # split data
 x_train, x_test, y_train, y_test = train_test_split(resultNormalize, noStringTemp_Y, test_size = float(testing)/100, random_state=42)
